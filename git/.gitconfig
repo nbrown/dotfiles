@@ -1,0 +1,10 @@
+[user]
+	name = nbrown
+	email = nbrown04@gmail.com
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[core]
+	excludefile = /Users/brownn/.gitignore_global
+	excludesfile = /Users/brownn/.gitignore_global

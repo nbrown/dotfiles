@@ -1,0 +1,13 @@
+
+set name='Config. File Management'
+set prefix='cfm_'
+set cdir=$HOME"/."$prefix"dir"
+set cfile=$cdir"/"$prefix"config"
+
+set hname=`hostname`
+set os=`unama`
+
+set
+
+
+unset name prefix cdir cfile
