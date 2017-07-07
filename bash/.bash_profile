@@ -47,6 +47,4 @@ export TODO="t"
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
-source ~/.fresh/build/shell.sh
-
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
