@@ -19,7 +19,7 @@ export BASH_IT=$HOME/.bash_it
 export BASH_IT_THEME='bobby'
 
 # Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
+export GIT_HOSTING='git@git.github.com'
 
 # Set my editor and git editor
 export EDITOR="/usr/local/bin/vim"
@@ -48,3 +48,10 @@ export TODO="t"
 source $BASH_IT/bash_it.sh
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+
+COMP_FILES="/usr/local/etc/bash_completion.d/*"
+for comp in $COMP_FILES
+do
+    source $comp
+done
