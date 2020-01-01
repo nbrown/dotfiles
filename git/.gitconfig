@@ -8,3 +8,5 @@
 [core]
 	excludefile = /Users/brownn/.gitignore_global
 	excludesfile = /Users/brownn/.gitignore_global
+	autocrlf = false
+	filemode = false
