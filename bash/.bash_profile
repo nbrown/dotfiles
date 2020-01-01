@@ -55,3 +55,6 @@ for comp in $COMP_FILES
 do
     source $comp
 done
+
+export GOPATH=~/go
+export PATH=$PATH:/Users/brownn/projects/v8-dev-area/depot_tools
