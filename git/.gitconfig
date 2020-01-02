@@ -10,3 +10,5 @@
 	excludesfile = /Users/brownn/.gitignore_global
 	autocrlf = false
 	filemode = false
+[diff]
+	submodule = log
