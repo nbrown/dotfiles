@@ -5,9 +5,9 @@
 	path = zsh/.oh-my-zsh
 	url = git@github.com:nbrown/oh-my-zsh.git
 [submodule "vim/.spf13-vim-3"]
-	path = vim/.spf13-vim-3
+	path = vim/dot-spf13-vim-3
 	url = git@github.com:spf13/spf13-vim.git
 [submodule "vim/.vim"]
-	path = vim/.vim
+	path = vim/dot-vim
 	url = git@github.com:nbrown/vim-files
 	ignore = dirty
