@@ -10,3 +10,4 @@
 [submodule "vim/.vim"]
 	path = vim/.vim
 	url = git@github.com:nbrown/vim-files
+	ignore = dirty
