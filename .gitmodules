@@ -11,3 +11,27 @@
 	path = vim/dot-vim
 	url = git@github.com:nbrown/vim-files
 	ignore = dirty
+[submodule "tmux/dot-tmux/plugins/tmux-copycat"]
+	path = tmux/dot-tmux/plugins/tmux-copycat
+	url = git@github.com/tmux-plugins/tmux-copycat
+	branch = master
+[submodule "tmux/dot-tmux/plugins/tmux-open"]
+	path = tmux/dot-tmux/plugins/tmux-open
+	url = git@github.com/tmux-plugins/tmux-open
+	branch = master
+[submodule "tmux/dot-tmux/plugins/tmux-resurrect"]
+	path = tmux/dot-tmux/plugins/tmux-resurrect
+	url = git@github.com/tmux-plugins/tmux-resurrect
+	branch = master
+[submodule "tmux/dot-tmux/plugins/tmux-yank"]
+	path = tmux/dot-tmux/plugins/tmux-yank
+	url = git@github.com/tmux-plugins/tmux-yank
+	branch = master
+[submodule "tmux/dot-tmux/plugins/tpm"]
+	path = tmux/dot-tmux/plugins/tpm
+	url = github.com/tmux-plugins/tpm
+	branch = master
+[submodule "tmux/dot-tmux/plugins/tmux-sensible"]
+	path = tmux/dot-tmux/plugins/tmux-sensible
+	url = git@github.com/tmux-plugins/tmux-sensible
+	branch = master
