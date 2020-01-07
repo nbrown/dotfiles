@@ -7,3 +7,4 @@ fish/.config/fisherman/*
 fish/.config/fish/functions/*
 fish/.config/fish/conf.d/*
 fish/.config/fish/completions/*
+git/dot-config/hub
