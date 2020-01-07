@@ -21,7 +21,7 @@ set -o nounset                              # Treat unset variables as an error
 
 
 
-SCRIPT_DIR=$(dirname "$0")
+SCRIPT_DIR=$(dirname "$0")/$(readlink "$0" | xargs dirname)
 STOW=${SCRIPT_DIR}/stow
 
 pushd $(dirname "$0") > /dev/null
