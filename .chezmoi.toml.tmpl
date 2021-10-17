@@ -1,0 +1,26 @@
+{{- $email := "" -}}
+{{- if (hasKey . "email") -}}
+{{-   $email = .email -}}
+{{- else -}}
+{{-   $email = promptString "email" -}}
+{{- end -}}
+
+{{- $name := "" -}}
+{{- if (hasKey . "name") -}}
+{{-   $name = .name -}}
+{{- else -}}
+{{-   $name = promptString "name" -}}
+{{- end -}}
+
+{{- $github_username := "" -}}
+{{- if (hasKey . "github_username") -}}
+{{-   $github_username = .github_username -}}
+{{- else -}}
+{{-   $github_username = promptString "github_username" -}}
+{{- end -}}
+
+[data]
+    email = {{ $email | quote }}
+    name = {{ $name | quote }}
+    github_username ={{ $github_username | quote }} 
+

@@ -1,0 +1,14 @@
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[core]
+	excludefile = {{ .chezmoi.homeDir }}/.gitignore_global
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+	autocrlf = false
+	filemode = false
+[diff]
+	submodule = log

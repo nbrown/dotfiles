@@ -1,0 +1,3 @@
+set bell-style off
+set show-mode-in-prompt on
+Control-l : clear-screen

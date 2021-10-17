@@ -1,0 +1,14 @@
+"*":
+  "exception-reporting":
+    userId: "0b8eec5b-7447-a188-b86d-3946f2d18b8f"
+  welcome:
+    showOnStartup: false
+  core:
+    projectHome: "/Users/brownn/projects"
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    invisibles: {}
+  pigments: {}

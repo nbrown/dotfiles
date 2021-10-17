@@ -1,0 +1,11 @@
+% setenv('GNUTERM','qt')
+% graphics_toolkit("gnuplot")
+
+edit mode async
+% set my_octave_home to edit home and not the other way because edit home doesn't accept variables
+edit home '~/projects/octave'
+
+global my_octave_home = edit('get', 'home');
+% addpath(genpath(my_octave_home))
+
+% vim:ft=matlab

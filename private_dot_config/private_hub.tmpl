@@ -1,0 +1,4 @@
+github.com:
+- user: {{ (bitwarden "item" "Github API").login.username }}
+  oauth_token: {{ (bitwarden "item" "Github API").login.password }}
+  protocol: https
