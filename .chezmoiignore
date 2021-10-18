@@ -56,3 +56,4 @@
 .zcompdump*
 .zef/*
 .perlbrew
+.subversion/auth
