@@ -87,6 +87,8 @@ zinit wait lucid for \
     wfxr/forgit \
     changyuheng/zsh-interactive-cd \
     _local/nbrown-zsh-setup \
+    MenkeTechnologies/zsh-very-colorful-manuals \
+
 
 zinit ice wait'!' lucid atload'source ~/.p10k.zsh; _p9k_precmd' nocd
 zinit light romkatv/powerlevel10k
@@ -104,5 +106,7 @@ path=(/usr/local/opt/qt/bin
     /usr/local/opt/texinfo/bin
     {{ .chezmoi.homeDir }}/Library/Python/3.8/bin
     $path)
+
+source /usr/local/share/zsh-you-should-use/you-should-use.plugin.zsh
 
 export GEM_HOME="/usr/local"
