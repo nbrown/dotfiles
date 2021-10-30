@@ -1,2 +1,1 @@
-machine api.github.com login {{ (bitwarden "item" "Github API").login.username }} password {{ (bitwarden "item" "Github API").login.password }}
-
+machine api.github.com login {{ (bitwarden "item" "github.com ").login.username }} password {{ (bitwardenFields "item" "github.com").gh_auth_token.value }}

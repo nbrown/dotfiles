@@ -1,4 +1,4 @@
 github.com:
+    oauth_token: {{ (bitwardenFields "item" "github.com").gh_auth_token.value }}
     user: {{ .github_username }}
-    oauth_token: {{ (bitwardenFields "item" "github.com").oauth.value }}
-
+    git_protocol: ssh
