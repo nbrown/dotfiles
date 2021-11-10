@@ -1,29 +1,30 @@
-# # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
-else
-    export EDITOR='vim'
-fi
-
 # setup pager
-export PAGER=less
-export LESS='-g -i -M -R -S -w -z-4 '
-alias less='bat --pager "$PAGER $LESS" --style=snip,header --color=always '
+if command -v bat > /dev/null ; then
+    alias less='bat --pager "$PAGER $LESS" --style=snip,header --color=always '
+fi
 
 # ls tricks
-if ! command exa > /dev/null ; then
-    brew install exa
+if command -v exa > /dev/null ; then
+    ls() {
+        exa -F --git --color=always --color-scale -s=extension --group-directories-first $@
+    }
+
+    la() {
+        ls --all $@
+    }
+
+    ll() {
+        ls -ghlm --time-style=long-iso $@
+    }
+
+    lla() {
+        ll --all $@
+    }
+else
+    alias la='ls -a'
+    alias ll='ls -l'
+    alias lla='ls -la'
 fi
-alias ls='exa -F --git --color=always --color-scale -s=extension --group-directories-first'
-alias la='ls -a'
-
-ll() {
-        exa -F --git --color=always --color-scale -s=extension --group-directories-first -ghlm --time-style=long-iso $@
-}
-
-lla() {
-        exa -aF --git --color=always --color-scale -s=extension --group-directories-first -ghlm --time-style=long-iso $@
-}
 
 # aliases
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -32,16 +33,7 @@ alias zshconfig="$EDITOR ~/.zshrc"
 bindkey -v
 
 # User configuration
-path=($HOME/bin /usr/local/bin $path)
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
-export MANPATH="/usr/local/man:$MANPATH"
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/dsa_id"
-path=(/usr/local/sbin $path)
 
 # Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -102,11 +94,8 @@ source ~/perl5/perlbrew/etc/bashrc
 eval "$({{ .chezmoi.homeDir }}/.rakubrew/bin/rakubrew init Zsh)"
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
-path=(/usr/local/opt/qt/bin
-    /usr/local/opt/texinfo/bin
-    {{ .chezmoi.homeDir }}/Library/Python/3.8/bin
-    $path)
+# fzf completions & keybindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /usr/local/share/zsh-you-should-use/you-should-use.plugin.zsh
 
-export GEM_HOME="/usr/local"
