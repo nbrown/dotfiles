@@ -23,6 +23,8 @@
 .config/gh/hosts.yml.bk
 .config/gh/state.yml
 .config/radare2
+.config/zsh/.zcompdump
+.config/zsh/.zsh_history
 .cpan
 .cpanm
 .docker/*
@@ -57,3 +59,7 @@
 .zef/*
 .perlbrew
 .subversion/auth
+.p10k.zsh
+.wget-hsts
+.lesshst
+.zinit
