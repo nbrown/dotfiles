@@ -1,0 +1,37 @@
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+export MANPATH="/usr/local/man:$MANPATH"
+# ssh
+export SSH_KEY_PATH="~/.ssh/dsa_id"
+export GEM_HOME="/usr/local"
+
+# # Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='vim'
+fi
+export VISUAL="gvim"
+
+# setup pager
+export PAGER=less
+export LESS='-g -i -M -R -S -w -z-4 '
+
+path=( $HOME/bin
+    /usr/local/opt/openssl@3/bin
+    /usr/local/opt/qt/bin
+    /usr/local/opt/texinfo/bin
+    /Users/brownn/Library/Python/3.8/bin
+    /usr/local/sbin
+    /usr/local/bin
+    $path)
+
+# XDG
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
+
+# zsh
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
+export HISTSIZE=10000                   # Maximum events for internal history
+export SAVEHIST=10000                   # Maximum events in history file
