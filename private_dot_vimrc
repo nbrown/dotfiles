@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ajh17/VimCompletesMe'
 Plug 'w0rp/ale'
 Plug 'alker0/chezmoi.vim'
+Plug 'dbeecham/ctrlp-commandpalette.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
@@ -30,6 +31,7 @@ Plug 'romainl/vim-qf'
 Plug 'tpope/vim-rhubarb'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'puremourning/vimspector'
+Plug 'preservim/tagbar'
 call plug#end()
 
 filetype plugin indent on
@@ -217,6 +219,8 @@ map <leader>evs :vsp %%
 map <leader>et :tabe %%
 
 let g:ale_linters = {'perl6': 'all'}
+
+let g:ctrlp_user_command = 'fd %s --type f'
 
 
 
