@@ -26,6 +26,11 @@ else
     alias lla='ls -la'
 fi
 
+if command -v bat > /dev/null ; then
+    alias -g cat='bat'
+fi
+
+
 # aliases
 alias zshconfig="$EDITOR ~/.zshrc"
 
