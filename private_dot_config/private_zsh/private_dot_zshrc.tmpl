@@ -32,7 +32,7 @@ fi
 
 
 # aliases
-alias zshconfig="$EDITOR ~/.zshrc"
+alias zshconfig="$EDITOR $(chezmoi source-path)/*dot_config/*zsh/*dot_zshrc.tmpl"
 
 # setup vi style keybindings
 bindkey -v
