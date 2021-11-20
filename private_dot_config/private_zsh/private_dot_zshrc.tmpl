@@ -88,6 +88,8 @@ zinit wait lucid for \
     unixorn/fzf-zsh-plugin.git \
     nbrown/nbrown-zsh-settings \
     MenkeTechnologies/zsh-very-colorful-manuals \
+    as=program atclone"./build.sh --no-verify --install --prefix $ZPFX; cp ./man/* $ZPFX/man/man1/" atpull"%atclone" pick"$ZPFX/bin/*bat*" \
+        eth-p/bat-extras.git \
 
 
 zinit ice wait'!' lucid atload'source ~/.p10k.zsh; _p9k_precmd' nocd
