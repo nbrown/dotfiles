@@ -91,6 +91,8 @@ zinit wait lucid for \
     as=program atclone"./build.sh --no-verify --install --prefix $ZPFX; cp ./man/* $ZPFX/man/man1/" atpull"%atclone" pick"$ZPFX/bin/*bat*" \
         eth-p/bat-extras.git \
     LucasLarson/gunstage \
+    atload"__kitty_complete" \
+        redxtech/zsh-kitty \
 
 
 zinit ice wait'!' lucid atload'source ~/.p10k.zsh; _p9k_precmd' nocd
