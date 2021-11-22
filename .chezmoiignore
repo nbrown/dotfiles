@@ -64,3 +64,5 @@
 .zef/*
 .zinit
 Brewfile
+.ssh
+.config/zsh/.zcompcache
