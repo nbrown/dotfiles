@@ -98,7 +98,7 @@ zinit wait lucid for \
     chitoku-k/fzf-zsh-completions \
 
 
-zinit ice wait'!' lucid atload'source ~/.p10k.zsh; _p9k_precmd' nocd
+zinit ice wait'!' lucid atload'source {{ .chezmoi.homeDir }}/.p10k.zsh; _p9k_precmd' nocd
 zinit light romkatv/powerlevel10k
 
 ## options
@@ -106,12 +106,12 @@ setopt NO_CASE_GLOB
 
 ## plugins=(dzil) #leftover from OMZ days
 
-source ~/perl5/perlbrew/etc/bashrc
+source {{ .chezmoi.homeDir }}/perl5/perlbrew/etc/bashrc
 eval "$({{ .chezmoi.homeDir }}/.rakubrew/bin/rakubrew init Zsh)"
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
 # fzf completions & keybindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f {{ .chezmoi.homeDir }}/.fzf.zsh ] && source {{ .chezmoi.homeDir }}/.fzf.zsh
 
 source /usr/local/share/zsh-you-should-use/you-should-use.plugin.zsh
 
