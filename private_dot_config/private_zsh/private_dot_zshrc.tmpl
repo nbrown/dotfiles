@@ -97,12 +97,14 @@ zinit wait lucid for \
     atload"__kitty_complete" \
         redxtech/zsh-kitty \
     chitoku-k/fzf-zsh-completions \
+    nbrown/zinit-zsh-hints \
 
 
 zinit ice wait'!' lucid atload'source {{ .chezmoi.homeDir }}/.p10k.zsh; _p9k_precmd' nocd
 zinit light romkatv/powerlevel10k
 
 ## options
+    zstyle ':zsh-hints:*:' dir ""
 setopt NO_CASE_GLOB
 
 ## plugins=(dzil) #leftover from OMZ days
