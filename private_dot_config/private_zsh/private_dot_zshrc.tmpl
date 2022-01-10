@@ -25,6 +25,7 @@ else
     alias ll='ls -l'
     alias lla='ls -la'
 fi
+alias -g broken-links='*(-@)'
 
 if command -v bat > /dev/null ; then
     alias -g cat='bat'
@@ -60,7 +61,11 @@ autoload -Uz _zinit
 zinit light-mode for \
     zdharma-continuum/z-a-as-monitor \
     zdharma-continuum/z-a-patch-dl \
-    zdharma-continuum/z-a-bin-gem-node
+    zdharma-continuum/z-a-bin-gem-node \
+    zdharma-continuum/zinit-annex-man \
+    NICHOLAS85/z-a-eval \
+    NICHOLAS85/z-a-linkbin \
+
 
 # End of Zinit's installer chunk
 
@@ -72,8 +77,6 @@ zinit wait lucid for \
     blockf atpull'zinit creinstall -q .' \
         zsh-users/zsh-completions \
     zdharma-continuum/zui \
-    zdharma-continuum/zinit-annex-man \
-    PZT::modules/homebrew/init.zsh \
     svn pick"macos.plugin.zsh" OMZ::plugins/macos \
     svn OMZ::plugins/git \
     svn OMZ::plugins/git-extras \
@@ -88,13 +91,14 @@ zinit wait lucid for \
     wfxr/forgit \
     changyuheng/zsh-interactive-cd \
     unixorn/fzf-zsh-plugin.git \
-    nbrown/nbrown-zsh-settings \
+    atclone"./setup.zsh" atpull"%atclone" \
+        nbrown/nbrown-zsh-settings \
     nbrown/bw-cli-zsh \
     MenkeTechnologies/zsh-very-colorful-manuals \
     as=program atclone"./build.sh --no-verify --install --prefix $ZPFX; cp ./man/* $ZPFX/man/man1/" atpull"%atclone" pick"$ZPFX/bin/*bat*" \
         eth-p/bat-extras.git \
     LucasLarson/gunstage \
-    atload"__kitty_complete" \
+    blockf atpull'zinit creinstall -q .' \
         redxtech/zsh-kitty \
     wait"1" \
         chitoku-k/fzf-zsh-completions \
