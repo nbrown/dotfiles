@@ -1,0 +1,64 @@
+# Added by Zinit's installer
+
+if [[ ! -f ${ZINIT[BIN_DIR]}/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p ${ZINIT[BIN_DIR]} && command chmod g-rwX ${ZINIT[BIN_DIR]}
+    command git clone https://github.com/zdharma-continuum/zinit ${ZINIT[BIN_DIR]} && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source ${ZINIT[BIN_DIR]}/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/z-a-as-monitor \
+    zdharma-continuum/z-a-patch-dl \
+    zdharma-continuum/z-a-bin-gem-node \
+    zdharma-continuum/zinit-annex-man \
+    NICHOLAS85/z-a-eval \
+    NICHOLAS85/z-a-linkbin \
+
+
+# End of Zinit's installer chunk
+
+zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        zdharma-continuum/fast-syntax-highlighting \
+    atload"_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions \
+    blockf atpull'zinit creinstall -q .' \
+        zsh-users/zsh-completions \
+    zdharma-continuum/zui \
+    svn pick"macos.plugin.zsh" OMZ::plugins/macos \
+    svn OMZ::plugins/git \
+    svn OMZ::plugins/colorize \
+    svn OMZ::plugins/copydir \
+    svn OMZ::plugins/copyfile \
+    OMZL::clipboard.zsh \
+    svn OMZ::plugins/cp \
+    svn OMZ::plugins/tmux \
+    svn OMZ::plugins/fasd \
+    svn OMZ::plugins/emoji \
+    wfxr/forgit \
+    changyuheng/zsh-interactive-cd \
+    unixorn/fzf-zsh-plugin.git \
+    atclone"./setup.zsh" atpull"%atclone" \
+        nbrown/nbrown-zsh-settings \
+    nbrown/bw-cli-zsh \
+    MenkeTechnologies/zsh-very-colorful-manuals \
+    as=program atclone"./build.sh --no-verify --install --prefix $ZPFX; cp ./man/* $ZPFX/man/man1/" atpull"%atclone" pick"$ZPFX/bin/*bat*" \
+        eth-p/bat-extras.git \
+    LucasLarson/gunstage \
+    blockf atpull'zinit creinstall -q .' \
+        redxtech/zsh-kitty \
+    wait"1" \
+        chitoku-k/fzf-zsh-completions \
+    nbrown/zinit-zsh-hints \
+
+
+zinit ice depth"1"
+zinit light romkatv/powerlevel10k

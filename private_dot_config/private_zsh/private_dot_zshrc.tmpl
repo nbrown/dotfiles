@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # setup pager
 if command -v bat > /dev/null ; then
     alias less='bat --pager "$PAGER $LESS" --style=snip,header --color=always '
@@ -42,70 +49,9 @@ bindkey -v
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 hash -d chezmoi=~/.local/share/chezmoi/
 
-# Added by Zinit's installer
-
-if [[ ! -f ${ZINIT[BIN_DIR]}/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p ${ZINIT[BIN_DIR]} && command chmod g-rwX ${ZINIT[BIN_DIR]}
-    command git clone https://github.com/zdharma-continuum/zinit ${ZINIT[BIN_DIR]} && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+if [[ -f "$ZDOTDIR/zinit-config.zsh" ]]; then
+    source "$ZDOTDIR/zinit-config.zsh"
 fi
-
-source ${ZINIT[BIN_DIR]}/zinit.zsh
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/z-a-as-monitor \
-    zdharma-continuum/z-a-patch-dl \
-    zdharma-continuum/z-a-bin-gem-node \
-    zdharma-continuum/zinit-annex-man \
-    NICHOLAS85/z-a-eval \
-    NICHOLAS85/z-a-linkbin \
-
-
-# End of Zinit's installer chunk
-
-zinit wait lucid for \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
-    atload"_zsh_autosuggest_start" \
-        zsh-users/zsh-autosuggestions \
-    blockf atpull'zinit creinstall -q .' \
-        zsh-users/zsh-completions \
-    zdharma-continuum/zui \
-    svn pick"macos.plugin.zsh" OMZ::plugins/macos \
-    svn OMZ::plugins/git \
-    svn OMZ::plugins/colorize \
-    svn OMZ::plugins/copydir \
-    svn OMZ::plugins/copyfile \
-    OMZL::clipboard.zsh \
-    svn OMZ::plugins/cp \
-    svn OMZ::plugins/tmux \
-    svn OMZ::plugins/fasd \
-    svn OMZ::plugins/emoji \
-    wfxr/forgit \
-    changyuheng/zsh-interactive-cd \
-    unixorn/fzf-zsh-plugin.git \
-    atclone"./setup.zsh" atpull"%atclone" \
-        nbrown/nbrown-zsh-settings \
-    nbrown/bw-cli-zsh \
-    MenkeTechnologies/zsh-very-colorful-manuals \
-    as=program atclone"./build.sh --no-verify --install --prefix $ZPFX; cp ./man/* $ZPFX/man/man1/" atpull"%atclone" pick"$ZPFX/bin/*bat*" \
-        eth-p/bat-extras.git \
-    LucasLarson/gunstage \
-    blockf atpull'zinit creinstall -q .' \
-        redxtech/zsh-kitty \
-    wait"1" \
-        chitoku-k/fzf-zsh-completions \
-    nbrown/zinit-zsh-hints \
-
-
-zinit ice wait'!' lucid atload'source {{ .chezmoi.homeDir }}/.p10k.zsh; _p9k_precmd' nocd
-zinit light romkatv/powerlevel10k
 
 ## options
     zstyle ':zsh-hints:*:' dir ""
@@ -122,3 +68,5 @@ eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
 source /usr/local/share/zsh-you-should-use/you-should-use.plugin.zsh
 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
