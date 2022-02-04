@@ -66,3 +66,4 @@
 Brewfile
 .ssh
 .config/zsh/.zcompcache
+.config/nvim/.netrwhist
