@@ -19,14 +19,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'stmuk/taglist.vim'
 Plug 'junegunn/vader.vim'
-Plug 'gikmx/vim-ctrlposession' | Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-dispatch'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-git'
 Plug 'jceb/vim-hier'
 Plug 'vim-perl/vim-perl'
 Plug 'WolfgangMehner/vim-plugins'
-Plug 'dhruvasagar/vim-prosession'
 Plug 'romainl/vim-qf'
 Plug 'tpope/vim-rhubarb'
 Plug 'tmux-plugins/vim-tmux'
@@ -35,6 +33,9 @@ Plug 'preservim/tagbar'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-startify'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 filetype plugin indent on
@@ -160,7 +161,7 @@ endfunction
 
 
 " Set leader and localleader prior to setting any mappings
-let mapleader = ','
+let mapleader = "\<Space>"
 let maplocalleader = '_'
 
 noremap <leader>bg :call ToggleBG()<CR>
@@ -180,6 +181,7 @@ nmap <silent> <leader>/ :set invhlsearch<CR>
 
 syntax on
 
+set guifont=MesloLGMNerdFontCompleteM-Regular:h11
 command! -bar -nargs=0 Bigger  :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')
 command! -bar -nargs=0 Smaller :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')
 noremap <M-,>        :Smaller<CR>      " display the cursor position
@@ -212,6 +214,12 @@ map <leader>et :tabe %%
 let g:ale_linters = {'perl6': 'all'}
 
 let g:ctrlp_user_command = 'fd %s --type f'
+
+" <Leader>hljk = Move between splits
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
 
 
 
