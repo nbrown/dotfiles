@@ -20,10 +20,10 @@
     url = "https://github.com/Bash-it/bash-it/archive/master.tar.gz"
     exact = true
     stripComponents = 1
-    refreshPeriod = 168
+    refreshPeriod = "168h"
 [".tmux/plugins/tpm"]
     type = "archive"
     url = "https://github.com/Bash-it/bash-it/archive/master.tar.gz"
     exact = true
     stripComponents = 1
-    refreshPeriod = 168
+    refreshPeriod = "168h"
