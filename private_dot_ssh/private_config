@@ -1,0 +1,13 @@
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+
+
+Host hashbang
+    HostName ny1.hashbang.sh
+    User nbrown04
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_rsa
+
+
