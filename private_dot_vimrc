@@ -23,8 +23,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-git'
 Plug 'jceb/vim-hier'
-Plug 'vim-perl/vim-perl'
-Plug 'WolfgangMehner/vim-plugins'
+Plug 'sheerun/vim-polyglot'
 Plug 'romainl/vim-qf'
 Plug 'tpope/vim-rhubarb'
 Plug 'tmux-plugins/vim-tmux'
@@ -36,7 +35,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
-Plug 'ziglang/zig.vim'
 call plug#end()
 
 filetype plugin indent on
