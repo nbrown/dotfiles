@@ -60,8 +60,8 @@ setopt NO_CASE_GLOB
 ## plugins=(dzil) #leftover from OMZ days
 
 source {{ .chezmoi.homeDir }}/perl5/perlbrew/etc/bashrc
-eval "$({{ .chezmoi.homeDir }}/.rakubrew/bin/rakubrew init Zsh)"
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+_evalcache {{ .chezmoi.homeDir }}/.rakubrew/bin/rakubrew init Zsh
+_evalcache perl -I{{ .chezmoi.homeDir }}/perl5/lib/perl5 -Mlocal::lib={{ .chezmoi.homeDir }}/perl5
 
 # fzf completions & keybindings
 [ -f {{ .chezmoi.homeDir }}/.fzf.zsh ] && source {{ .chezmoi.homeDir }}/.fzf.zsh
