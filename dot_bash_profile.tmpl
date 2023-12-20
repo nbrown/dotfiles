@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
-source {{ .chezmoi.homeDir }}/perl5/perlbrew/etc/bashrc
+source /Users/brownn/perl5/perlbrew/etc/bashrc
 export BYOBU_PREFIX=$(brew --prefix)
 
-export PATH=$PATH:{{ .chezmoi.homeDir }}/install/bin:{{ .chezmoi.homeDir }}/projects/rakudo/install/languages/perl6/site/bin:{{ .chezmoi.homeDir }}/projects/rakudo/install/bin:{{ .chezmoi.homeDir }}/projects/rakudo/install/share/perl6/site/bin
+export PATH=$PATH:/Users/brownn/install/bin:/Users/brownn/projects/rakudo/install/languages/perl6/site/bin:/Users/brownn/projects/rakudo/install/bin:/Users/brownn/projects/rakudo/install/share/perl6/site/bin
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Load RVM, if you are using it
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # Add rvm gems and nginx to the path
-export PATH=$PATH:{{ .chezmoi.homeDir }}/.gem/ruby/1.8/bin
+export PATH=$PATH:/Users/brownn/.gem/ruby/1.8/bin
 
 # Path to the bash it configuration
 export BASH_IT=$HOME/.bash_it
@@ -22,8 +24,8 @@ export BASH_IT_THEME='bobby'
 export GIT_HOSTING='git@git.github.com'
 
 # Set my editor and git editor
-export EDITOR="/usr/local/bin/vim"
-export GIT_EDITOR='/usr/local/bin/vim'
+export EDITOR="/opt/homebrew/bin/vim"
+export GIT_EDITOR='/opt/homebrew/bin/vim'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -39,7 +41,7 @@ export TODO="t"
 
 # Set vcprompt executable path for scm advance info in prompt (demula theme)
 # https://github.com/xvzf/vcprompt
-#export VCPROMPT_EXECUTABLE={{ .chezmoi.homeDir }}/.vcprompt/bin/vcprompt
+#export VCPROMPT_EXECUTABLE=/Users/brownn/.vcprompt/bin/vcprompt
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
@@ -47,13 +49,13 @@ source $BASH_IT/bash_it.sh
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 
-COMP_FILES="/usr/local/etc/bash_completion.d/*"
+COMP_FILES="/opt/homebrew/etc/bash_completion.d/*"
 for comp in $COMP_FILES
 do
     source $comp
 done
 
-export GOPATH={{ .chezmoi.homeDir }}/go
-export PATH=$PATH:{{ .chezmoi.homeDir }}/projects/v8-dev-area/depot_tools
+export GOPATH=/Users/brownn/go
+export PATH=$PATH:/Users/brownn/projects/v8-dev-area/depot_tools
 
 export PATH="$HOME/.cargo/bin:$PATH"
