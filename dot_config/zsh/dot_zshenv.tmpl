@@ -1,8 +1,8 @@
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-export MANPATH="/usr/local/man:$MANPATH"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+export MANPATH="/opt/homebrew/man:$MANPATH"
 # ssh
 export SSH_KEY_PATH="{{ .chezmoi.homeDir }}/.ssh/dsa_id"
-export GEM_HOME="/usr/local"
+export GEM_HOME="/opt/homebrew"
 
 # # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
