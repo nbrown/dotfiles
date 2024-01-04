@@ -49,8 +49,28 @@ bindkey -v
 fpath=(/opt/homebrew/share/zsh-completions /opt/homebrew/share/zsh/functions $fpath)
 hash -d chezmoi=~/.local/share/chezmoi/
 
-if [[ -f "$ZDOTDIR/zinit-config.zsh" ]]; then
-    source "$ZDOTDIR/zinit-config.zsh"
+ZSH_MANAGER=ZIM
+
+if [[ ${ZSH_MANAGER} = "ZINIT" ]]; then
+    if [[ -f "$ZDOTDIR/zinit-config.zsh" ]]; then
+        source "$ZDOTDIR/zinit-config.zsh"
+    fi
+elif [[ ${ZSH_MANAGER} = "ZIM" ]]; then
+    # Download zimfw plugin manager if missing.
+    if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+        curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+            https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+    fi
+
+    # Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+    if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+        source ${ZIM_HOME}/zimfw.zsh init -q
+    fi
+
+    if [[ -f "${ZIM_HOME}/init.zsh" ]]; then
+        source "${ZIM_HOME}/init.zsh"
+    fi
+else
 fi
 
 ## options
