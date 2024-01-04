@@ -1,0 +1,33 @@
+zmodule mroth/evalcache
+zmodule zdharma-continuum/fast-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+zmodule zsh-users/zsh-completions --fpath src
+zmodule wfxr/forgit
+zmodule changyuheng/zsh-interactive-cd
+zmodule unixorn/fzf-zsh-plugin
+zmodule nbrown/nbrown-zsh-settings --on-pull "./setup.zsh"
+zmodule nbrown/bw-cli-zsh
+zmodule MenkeTechnologies/zsh-very-colorful-manuals
+zmodule joke/zim-chezmoi
+zmodule LucasLarson/gunstage
+zmodule redxtech/zsh-kitty
+zmodule chitoku-k/fzf-zsh-completions
+zmodule nbrown/zinit-zsh-hints
+zmodule reegnz/jq-zsh-plugin
+
+# calls compinit. must be loaded after all other modules that at completions
+zmodule completion
+
+zmodule ohmyzsh/ohmyzsh --root plugins/vim-interaction
+zmodule ohmyzsh/ohmyzsh --root plugins/macos
+zmodule ohmyzsh/ohmyzsh --root plugins/git
+zmodule ohmyzsh/ohmyzsh --root plugins/colorize
+zmodule ohmyzsh/ohmyzsh --root plugins/copypath
+zmodule ohmyzsh/ohmyzsh --root plugins/copyfile
+zmodule ohmyzsh/ohmyzsh --source lib/clipboard.zsh
+zmodule ohmyzsh/ohmyzsh --root plugins/cp
+zmodule ohmyzsh/ohmyzsh --root plugins/tmux
+zmodule ohmyzsh/ohmyzsh --root plugins/fasd
+zmodule ohmyzsh/ohmyzsh --root plugins/emoji
+
+zmodule romkatv/powerlevel10k --use degit
