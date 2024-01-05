@@ -11,9 +11,9 @@ if command -v bat > /dev/null ; then
 fi
 
 # ls tricks
-if command -v exa > /dev/null ; then
+if command -v eza > /dev/null ; then
     ls() {
-        exa -F --git --color=always --color-scale -s=extension --group-directories-first $@
+        eza -F --git --color=always --color-scale -s=extension --group-directories-first $@
     }
 
     la() {
